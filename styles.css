@@ -20,7 +20,7 @@ body {
 }
 
 body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 a {
@@ -28,7 +28,6 @@ a {
   text-decoration: none;
 }
 
-/* LAYOUT */
 .site-shell {
   display: flex;
   min-height: 100vh;
@@ -41,6 +40,8 @@ a {
   padding: 22px 28px;
   border-right: 1px solid var(--line);
   background: #ffffff;
+  position: relative;
+  z-index: 10;
 }
 
 .logo-wrap {
@@ -66,41 +67,39 @@ a {
   background: #ffffff;
 }
 
-/* HOME */
 .home-main {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
+  overflow: hidden;
 }
 
 .moon-stage {
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100vh;
+  position: relative;
   overflow: hidden;
 }
 
-.moon-system {
-  position: relative;
-  width: min(1200px, calc(100vw - 320px));
-  height: min(1200px, calc(100vw - 320px));
-  min-width: 760px;
-  min-height: 760px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* fixed center system */
+.moon-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 980px;
+  height: 980px;
+  transform: translate(-50%, -50%);
 }
 
+/* MUCH BIGGER MOON */
 .moon-core {
-  position: relative;
-  width: min(760px, 72vw);
-  height: min(760px, 72vw);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 640px;
+  height: 640px;
+  transform: translate(-50%, -50%);
   z-index: 3;
 }
 
@@ -108,10 +107,10 @@ a {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  display: block;
   image-rendering: pixelated;
   filter: grayscale(1) contrast(1.28) brightness(0.95) sepia(0.14);
   mix-blend-mode: multiply;
-  display: block;
 }
 
 .moon-noise {
@@ -128,11 +127,11 @@ a {
   mix-blend-mode: multiply;
 }
 
-/* ORBITING LINKS */
+/* stars orbit around exact same center */
 .orbit-item {
   position: absolute;
-  top: 50%;
   left: 50%;
+  top: 50%;
   width: 180px;
   margin-left: -90px;
   margin-top: -90px;
@@ -183,16 +182,17 @@ a {
   white-space: nowrap;
 }
 
+/* orbit radius tuned to stay visible */
 .orbit-shop {
   animation: orbitOne 16s linear infinite;
 }
 
 .orbit-services {
-  animation: orbitTwo 19s linear infinite;
+  animation: orbitTwo 20s linear infinite;
 }
 
 .orbit-origami {
-  animation: orbitThree 17s linear infinite;
+  animation: orbitThree 18s linear infinite;
 }
 
 @keyframes orbitOne {
@@ -222,7 +222,7 @@ a {
   }
 }
 
-/* SUBPAGES */
+/* subpages */
 .simple-page {
   display: flex;
   min-height: 100vh;
@@ -258,54 +258,50 @@ a {
   border-bottom: 1px solid #000;
 }
 
-/* RESPONSIVE */
-@media (max-width: 1100px) {
-  .sidebar {
-    width: 220px;
-    min-width: 220px;
-  }
-
-  .moon-system {
-    width: min(900px, calc(100vw - 260px));
-    height: min(900px, calc(100vw - 260px));
-    min-width: 620px;
-    min-height: 620px;
+@media (max-width: 1200px) {
+  .moon-center {
+    width: 760px;
+    height: 760px;
   }
 
   .moon-core {
-    width: min(560px, 64vw);
-    height: min(560px, 64vw);
+    width: 500px;
+    height: 500px;
   }
 
   @keyframes orbitOne {
     0% {
-      transform: rotate(0deg) translateY(-260px) rotate(0deg);
+      transform: rotate(0deg) translateY(-270px) rotate(0deg);
     }
     100% {
-      transform: rotate(360deg) translateY(-260px) rotate(-360deg);
+      transform: rotate(360deg) translateY(-270px) rotate(-360deg);
     }
   }
 
   @keyframes orbitTwo {
     0% {
-      transform: rotate(120deg) translateY(-260px) rotate(-120deg);
+      transform: rotate(120deg) translateY(-270px) rotate(-120deg);
     }
     100% {
-      transform: rotate(480deg) translateY(-260px) rotate(-480deg);
+      transform: rotate(480deg) translateY(-270px) rotate(-480deg);
     }
   }
 
   @keyframes orbitThree {
     0% {
-      transform: rotate(240deg) translateY(-260px) rotate(-240deg);
+      transform: rotate(240deg) translateY(-270px) rotate(-240deg);
     }
     100% {
-      transform: rotate(600deg) translateY(-260px) rotate(-600deg);
+      transform: rotate(600deg) translateY(-270px) rotate(-600deg);
     }
   }
 }
 
 @media (max-width: 780px) {
+  body {
+    overflow: auto;
+  }
+
   .site-shell,
   .simple-page {
     flex-direction: column;
@@ -324,19 +320,18 @@ a {
   }
 
   .moon-stage {
-    min-height: calc(100vh - 180px);
+    height: calc(100vh - 180px);
+    min-height: 520px;
   }
 
-  .moon-system {
-    width: 94vw;
-    height: 94vw;
-    min-width: 340px;
-    min-height: 340px;
+  .moon-center {
+    width: 360px;
+    height: 360px;
   }
 
   .moon-core {
-    width: 260px;
-    height: 260px;
+    width: 250px;
+    height: 250px;
   }
 
   .orbit-item {
