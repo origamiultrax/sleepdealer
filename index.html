@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sleep Dealer — Home</title>
+  <title>Sleep Dealer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -28,123 +34,59 @@
       </nav>
     </aside>
 
-    <main class="main-content">
-      <header class="page-header">
-        <p class="eyebrow">Sleep Dealer</p>
-        <h1>Futures / Time / Atmosphere</h1>
-      </header>
+    <main class="main-content home-main">
+      <section class="moon-stage">
+        <div class="moon-system" id="moon-system">
+          <button class="moon-button" id="moon-button" aria-label="Open navigation stars">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Moon_rotating_full_160px.gif"
+              alt="Rotating moon"
+              class="moon-gif"
+            />
+            <span class="moon-noise"></span>
+          </button>
 
-      <section class="dashboard-grid">
-        <!-- WORLD CLOCKS -->
-        <div class="panel panel-large">
-          <div class="panel-header">
-            <h2>World Clocks</h2>
-            <span class="panel-glow"></span>
-          </div>
+          <a href="shop.html" class="orbit-item orbit-shop" id="star-shop">
+            <span class="star-icon-wrap">
+              <img
+                src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUycmt2cXYwdTRldGdlb3p1dXR2dnJyNG12dXlveG5uOTJlbWNqMnZjZCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/C4b6GwFKbYxK8/200w.gif"
+                alt=""
+                class="star-gif"
+              />
+            </span>
+            <span class="orbit-label">Shop</span>
+          </a>
 
-          <div class="clocks-grid">
-            <div class="clock-card">
-              <p class="clock-city">New York</p>
-              <p class="clock-time" id="clock-ny">--:--:--</p>
-            </div>
+          <a href="order-services.html" class="orbit-item orbit-services" id="star-services">
+            <span class="star-icon-wrap">
+              <img
+                src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUycmt2cXYwdTRldGdlb3p1dXR2dnJyNG12dXlveG5uOTJlbWNqMnZjZCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/C4b6GwFKbYxK8/200w.gif"
+                alt=""
+                class="star-gif"
+              />
+            </span>
+            <span class="orbit-label">Order Services</span>
+          </a>
 
-            <div class="clock-card">
-              <p class="clock-city">Queenstown</p>
-              <p class="clock-time" id="clock-queenstown">--:--:--</p>
-            </div>
-
-            <div class="clock-card">
-              <p class="clock-city">Pyongyang</p>
-              <p class="clock-time" id="clock-pyongyang">--:--:--</p>
-            </div>
-
-            <div class="clock-card">
-              <p class="clock-city">Easter Island</p>
-              <p class="clock-time" id="clock-easter">--:--:--</p>
-            </div>
-
-            <div class="clock-card">
-              <p class="clock-city">American Samoa</p>
-              <p class="clock-time" id="clock-samoa">--:--:--</p>
-            </div>
-
-            <div class="clock-card">
-              <p class="clock-city">Kuala Lumpur</p>
-              <p class="clock-time" id="clock-kl">--:--:--</p>
-            </div>
-          </div>
+          <a
+            href="https://www.origamiultra.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="orbit-item orbit-origami"
+            id="star-origami"
+          >
+            <span class="star-icon-wrap">
+              <img
+                src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUycmt2cXYwdTRldGdlb3p1dXR2dnJyNG12dXlveG5uOTJlbWNqMnZjZCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/C4b6GwFKbYxK8/200w.gif"
+                alt=""
+                class="star-gif"
+              />
+            </span>
+            <span class="orbit-label">Origami Ultra</span>
+          </a>
         </div>
 
-        <!-- MARKET PANEL -->
-        <div class="panel">
-          <div class="panel-header">
-            <h2>Markets</h2>
-            <span class="panel-glow"></span>
-          </div>
-
-          <div class="market-summary">
-            <div class="market-box">
-              <p class="market-label">Dow Jones</p>
-              <p class="market-ticker">DJI</p>
-            </div>
-            <div class="market-box">
-              <p class="market-label">Nasdaq</p>
-              <p class="market-ticker">IXIC</p>
-            </div>
-          </div>
-
-          <div class="market-graphic-placeholder">
-            <div class="market-line"></div>
-            <p class="market-note">Live market widget will go here.</p>
-          </div>
-        </div>
-
-        <!-- WEATHER PANEL -->
-        <div class="panel">
-          <div class="panel-header">
-            <h2>Local Weather</h2>
-            <span class="panel-glow"></span>
-          </div>
-
-          <div class="weather-card">
-            <div class="weather-top">
-              <div>
-                <p class="weather-location" id="weather-location">Locating...</p>
-                <p class="weather-condition" id="weather-condition">Loading current conditions</p>
-              </div>
-
-              <div class="weather-icon-wrap">
-                <div id="weather-icon" class="weather-icon">◌</div>
-              </div>
-            </div>
-
-            <div class="weather-main">
-              <div class="weather-temp-block">
-                <p class="weather-temp" id="weather-temp">--°</p>
-                <p class="weather-feels" id="weather-feels">Feels like --°</p>
-              </div>
-
-              <div class="weather-metrics">
-                <div class="metric">
-                  <span>Wind</span>
-                  <strong id="weather-wind">-- km/h</strong>
-                </div>
-                <div class="metric">
-                  <span>Humidity</span>
-                  <strong id="weather-humidity">--%</strong>
-                </div>
-                <div class="metric">
-                  <span>Updated</span>
-                  <strong id="weather-updated">--</strong>
-                </div>
-              </div>
-            </div>
-
-            <div class="forecast-strip" id="forecast-strip">
-              <div class="forecast-placeholder">Forecast loading...</div>
-            </div>
-          </div>
-        </div>
+        <p class="moon-instruction">Click the moon</p>
       </section>
     </main>
   </div>
