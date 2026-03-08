@@ -79,8 +79,8 @@ a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: invert(1) contrast(1.45) brightness(0.98);
-  opacity: 0.42;
+  filter: invert(1) contrast(1.6) brightness(0.95);
+  opacity: 0.5;
   pointer-events: none;
   z-index: 0;
 }
