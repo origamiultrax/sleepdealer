@@ -64,7 +64,9 @@ a {
 .main-content {
   flex: 1;
   min-width: 0;
-  background: #ffffff;
+  background: radial-gradient(circle at center, #ffffff 0%, #f1f1f1 100%);
+  position: relative;
+  overflow: hidden;
 }
 
 .home-main {
@@ -392,16 +394,14 @@ a {
     padding: 28px;
   }
 }
-body::after {
+.main-content::after {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   pointer-events: none;
-
   background-image: url("https://images.squarespace-cdn.com/content/v1/542b4e6fe4b0d082dad4801a/1560392539470-LJ40XGTC7U3LG07GEA0U/loopingNoiseRaw.gif");
-
+  background-size: 260px 260px;
   opacity: 0.05;
-  mix-blend-mode: overlay;
-
-  z-index: 100;
+  mix-blend-mode: multiply;
+  z-index: 1;
 }
