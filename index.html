@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Dealer — Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <aside class="sidebar">
+      <div class="logo-wrap">
+        <img src="logo.png" alt="Sleep Dealer Logo" class="logo" />
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="order-services.html" class="nav-link">Order Services</a>
+        <a
+          href="https://www.origamiultra.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-link"
+        >
+          Origami Ultra
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="page-header">
+        <p class="eyebrow">Sleep Dealer</p>
+        <h1>Futures / Time / Atmosphere</h1>
+      </header>
+
+      <section class="dashboard-grid">
+        <!-- WORLD CLOCKS -->
+        <div class="panel panel-large">
+          <div class="panel-header">
+            <h2>World Clocks</h2>
+            <span class="panel-glow"></span>
+          </div>
+
+          <div class="clocks-grid">
+            <div class="clock-card">
+              <p class="clock-city">New York</p>
+              <p class="clock-time" id="clock-ny">--:--:--</p>
+            </div>
+
+            <div class="clock-card">
+              <p class="clock-city">Queenstown</p>
+              <p class="clock-time" id="clock-queenstown">--:--:--</p>
+            </div>
+
+            <div class="clock-card">
+              <p class="clock-city">Pyongyang</p>
+              <p class="clock-time" id="clock-pyongyang">--:--:--</p>
+            </div>
+
+            <div class="clock-card">
+              <p class="clock-city">Easter Island</p>
+              <p class="clock-time" id="clock-easter">--:--:--</p>
+            </div>
+
+            <div class="clock-card">
+              <p class="clock-city">American Samoa</p>
+              <p class="clock-time" id="clock-samoa">--:--:--</p>
+            </div>
+
+            <div class="clock-card">
+              <p class="clock-city">Kuala Lumpur</p>
+              <p class="clock-time" id="clock-kl">--:--:--</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MARKET PANEL -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Markets</h2>
+            <span class="panel-glow"></span>
+          </div>
+
+          <div class="market-summary">
+            <div class="market-box">
+              <p class="market-label">Dow Jones</p>
+              <p class="market-ticker">DJI</p>
+            </div>
+            <div class="market-box">
+              <p class="market-label">Nasdaq</p>
+              <p class="market-ticker">IXIC</p>
+            </div>
+          </div>
+
+          <div class="market-graphic-placeholder">
+            <div class="market-line"></div>
+            <p class="market-note">Live market widget will go here.</p>
+          </div>
+        </div>
+
+        <!-- WEATHER PANEL -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Local Weather</h2>
+            <span class="panel-glow"></span>
+          </div>
+
+          <div class="weather-card">
+            <div class="weather-top">
+              <div>
+                <p class="weather-location" id="weather-location">Locating...</p>
+                <p class="weather-condition" id="weather-condition">Loading current conditions</p>
+              </div>
+
+              <div class="weather-icon-wrap">
+                <div id="weather-icon" class="weather-icon">◌</div>
+              </div>
+            </div>
+
+            <div class="weather-main">
+              <div class="weather-temp-block">
+                <p class="weather-temp" id="weather-temp">--°</p>
+                <p class="weather-feels" id="weather-feels">Feels like --°</p>
+              </div>
+
+              <div class="weather-metrics">
+                <div class="metric">
+                  <span>Wind</span>
+                  <strong id="weather-wind">-- km/h</strong>
+                </div>
+                <div class="metric">
+                  <span>Humidity</span>
+                  <strong id="weather-humidity">--%</strong>
+                </div>
+                <div class="metric">
+                  <span>Updated</span>
+                  <strong id="weather-updated">--</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="forecast-strip" id="forecast-strip">
+              <div class="forecast-placeholder">Forecast loading...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

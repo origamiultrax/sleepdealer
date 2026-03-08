@@ -1,0 +1,489 @@
+:root {
+  --bg: #f4f1ea;
+  --bg-soft: #ece7de;
+  --panel: rgba(255, 255, 255, 0.52);
+  --panel-border: rgba(79, 118, 255, 0.18);
+  --text: #111319;
+  --muted: #657085;
+  --blue: #4d7dff;
+  --blue-soft: rgba(77, 125, 255, 0.12);
+  --shadow: 0 10px 40px rgba(40, 44, 70, 0.08);
+  --radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(93, 145, 255, 0.18), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(100, 180, 255, 0.12), transparent 26%),
+    linear-gradient(180deg, #f7f4ef 0%, #f0ebe2 100%);
+  color: var(--text);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.site-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  padding: 28px 20px;
+  border-right: 1px solid rgba(17, 19, 25, 0.08);
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(18px);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.logo-wrap {
+  margin-bottom: 34px;
+  padding: 8px 4px 24px;
+  border-bottom: 1px solid rgba(17, 19, 25, 0.08);
+}
+
+.logo {
+  width: 100%;
+  max-width: 220px;
+  display: block;
+  filter: drop-shadow(0 6px 16px rgba(77, 125, 255, 0.08));
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text);
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  background: transparent;
+  transition: 0.25s ease;
+  font-size: 0.98rem;
+  letter-spacing: 0.03em;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.55);
+  border-color: var(--panel-border);
+  box-shadow: 0 0 0 1px rgba(77, 125, 255, 0.05) inset;
+  color: #0e1430;
+}
+
+/* MAIN */
+.main-content {
+  flex: 1;
+  padding: 34px;
+}
+
+.page-header {
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+/* PANELS */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  min-height: 320px;
+  position: relative;
+  overflow: hidden;
+}
+
+.panel-large {
+  min-height: 500px;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(77, 125, 255, 0.04), transparent 30%),
+    linear-gradient(315deg, rgba(77, 125, 255, 0.03), transparent 40%);
+  pointer-events: none;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.panel-glow {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--blue);
+  box-shadow: 0 0 14px rgba(77, 125, 255, 0.9);
+}
+
+/* CLOCKS */
+.clocks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.clock-card {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(77, 125, 255, 0.14);
+  border-radius: 18px;
+  padding: 18px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.clock-city {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+.clock-time {
+  margin: 0;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+/* MARKET */
+.market-summary {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.market-box {
+  flex: 1;
+  border: 1px solid rgba(77, 125, 255, 0.14);
+  border-radius: 16px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.market-label,
+.market-ticker {
+  margin: 0;
+}
+
+.market-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.market-ticker {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.market-widget {
+  position: relative;
+  z-index: 1;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* WEATHER */
+.weather-card {
+  position: relative;
+  z-index: 1;
+}
+
+.weather-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.weather-location {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.weather-condition {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.weather-icon-wrap {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(77, 125, 255, 0.14);
+}
+
+.weather-icon {
+  font-size: 2rem;
+}
+
+.weather-main {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.weather-temp {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+}
+
+.weather-feels {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.weather-metrics {
+  min-width: 140px;
+  display: grid;
+  gap: 10px;
+}
+
+.metric {
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid rgba(77, 125, 255, 0.14);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.metric span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.metric strong {
+  font-size: 0.96rem;
+}
+
+.forecast-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.forecast-day {
+  border: 1px solid rgba(77, 125, 255, 0.14);
+  border-radius: 14px;
+  padding: 12px 10px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.forecast-day p {
+  margin: 0;
+}
+
+.forecast-name {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 6px !important;
+}
+
+.forecast-icon {
+  font-size: 1.2rem;
+  margin-bottom: 6px !important;
+}
+
+.forecast-temp {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.forecast-placeholder {
+  grid-column: 1 / -1;
+  color: var(--muted);
+}
+
+/* GENERIC PAGE */
+.single-panel-page {
+  max-width: 900px;
+}
+
+.statement-panel {
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+.statement-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.support-email {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.support-email:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-large {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 860px) {
+  .site-shell {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid rgba(17, 19, 25, 0.08);
+  }
+
+  .logo {
+    max-width: 180px;
+  }
+
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .clocks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .forecast-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .weather-main {
+    flex-direction: column;
+  }
+}
+.market-graphic-placeholder {
+  position: relative;
+  z-index: 1;
+  height: 320px;
+  border-radius: 16px;
+  border: 1px solid rgba(77, 125, 255, 0.14);
+  background: rgba(255, 255, 255, 0.56);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.market-line {
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(77, 125, 255, 0.3), transparent);
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.market-line::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  top: -30px;
+  width: 70%;
+  height: 60px;
+  border-bottom: 2px solid rgba(77, 125, 255, 0.9);
+  border-right: 2px solid transparent;
+  transform: skewX(-25deg);
+  filter: drop-shadow(0 0 8px rgba(77, 125, 255, 0.25));
+}
+
+.market-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
