@@ -1,1 +1,0 @@
-// No homepage click behavior needed right now.
