@@ -392,3 +392,16 @@ a {
     padding: 28px;
   }
 }
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background-image: url("https://images.squarespace-cdn.com/content/v1/542b4e6fe4b0d082dad4801a/1560392539470-LJ40XGTC7U3LG07GEA0U/loopingNoiseRaw.gif");
+
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+
+  z-index: 100;
+}
