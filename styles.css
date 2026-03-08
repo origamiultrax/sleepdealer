@@ -28,6 +28,7 @@ a {
   text-decoration: none;
 }
 
+/* LAYOUT */
 .site-shell {
   display: flex;
   min-height: 100vh;
@@ -41,7 +42,7 @@ a {
   border-right: 1px solid var(--line);
   background: #ffffff;
   position: relative;
-  z-index: 10;
+  z-index: 20;
 }
 
 .logo-wrap {
@@ -66,8 +67,36 @@ a {
   min-width: 0;
   position: relative;
   overflow: hidden;
+  background: #f7f7f7;
 }
 
+/* VISIBLE ANIMATED BACKGROUND */
+.main-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://i.redd.it/gspm4l6xzct41.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: invert(1) contrast(1.2) brightness(1.08);
+  opacity: 0.26;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* SOFT WHITE WASH OVER BACKGROUND FOR CLEANER LOOK */
+.main-content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.4) 55%, rgba(255, 255, 255, 0.55) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* HOME */
 .home-main {
   display: flex;
   align-items: center;
@@ -81,19 +110,21 @@ a {
   height: 100vh;
   position: relative;
   overflow: hidden;
+  z-index: 2;
 }
 
-/* fixed center system */
+/* FIXED CENTER SYSTEM */
 .moon-center {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 980px;
-  height: 980px;
+  width: 900px;
+  height: 900px;
   transform: translate(-50%, -50%);
+  z-index: 3;
 }
 
-/* MUCH BIGGER MOON */
+/* MOON SIZE */
 .moon-core {
   position: absolute;
   left: 50%;
@@ -101,7 +132,7 @@ a {
   width: 520px;
   height: 520px;
   transform: translate(-50%, -50%);
-  z-index: 3;
+  z-index: 4;
 }
 
 .moon-gif {
@@ -110,7 +141,7 @@ a {
   object-fit: contain;
   display: block;
   image-rendering: pixelated;
-  filter: grayscale(1) contrast(1.28) brightness(0.95) sepia(0.14);
+  filter: grayscale(1) contrast(1.22) brightness(0.96) sepia(0.08);
   mix-blend-mode: multiply;
 }
 
@@ -120,15 +151,15 @@ a {
   pointer-events: none;
   border-radius: 50%;
   background-image:
-    radial-gradient(rgba(0, 0, 0, 0.18) 0.7px, transparent 0.8px),
-    radial-gradient(rgba(0, 0, 0, 0.08) 0.7px, transparent 0.8px);
+    radial-gradient(rgba(0, 0, 0, 0.14) 0.7px, transparent 0.8px),
+    radial-gradient(rgba(0, 0, 0, 0.06) 0.7px, transparent 0.8px);
   background-size: 8px 8px, 11px 11px;
   background-position: 0 0, 4px 4px;
-  opacity: 0.22;
+  opacity: 0.18;
   mix-blend-mode: multiply;
 }
 
-/* stars orbit around exact same center */
+/* ORBITING LINKS */
 .orbit-item {
   position: absolute;
   left: 50%;
@@ -176,14 +207,14 @@ a {
   text-transform: uppercase;
   text-align: center;
   color: #000000;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.92);
   padding: 8px 12px;
   border-radius: 999px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   white-space: nowrap;
+  backdrop-filter: blur(2px);
 }
 
-/* orbit radius tuned to stay visible */
 .orbit-shop {
   animation: orbitOne 16s linear infinite;
 }
@@ -198,32 +229,32 @@ a {
 
 @keyframes orbitOne {
   0% {
-    transform: rotate(0deg) translateY(-355px) rotate(0deg);
+    transform: rotate(0deg) translateY(-280px) rotate(0deg);
   }
   100% {
-    transform: rotate(360deg) translateY(-355px) rotate(-360deg);
+    transform: rotate(360deg) translateY(-280px) rotate(-360deg);
   }
 }
 
 @keyframes orbitTwo {
   0% {
-    transform: rotate(120deg) translateY(-355px) rotate(-120deg);
+    transform: rotate(120deg) translateY(-280px) rotate(-120deg);
   }
   100% {
-    transform: rotate(480deg) translateY(-355px) rotate(-480deg);
+    transform: rotate(480deg) translateY(-280px) rotate(-480deg);
   }
 }
 
 @keyframes orbitThree {
   0% {
-    transform: rotate(240deg) translateY(-355px) rotate(-240deg);
+    transform: rotate(240deg) translateY(-280px) rotate(-240deg);
   }
   100% {
-    transform: rotate(600deg) translateY(-355px) rotate(-600deg);
+    transform: rotate(600deg) translateY(-280px) rotate(-480deg);
   }
 }
 
-/* subpages */
+/* SUBPAGES */
 .simple-page {
   display: flex;
   min-height: 100vh;
@@ -236,15 +267,35 @@ a {
   align-items: center;
   justify-content: center;
   padding: 40px;
+  position: relative;
+  overflow: hidden;
+  background: #f7f7f7;
+}
+
+.simple-page-main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://i.redd.it/gspm4l6xzct41.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: invert(1) contrast(1.2) brightness(1.08);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .simple-panel {
   width: min(700px, 90%);
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.88);
   border: 1px solid var(--line);
   border-radius: 28px;
   padding: 40px;
   box-shadow: var(--shadow);
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(4px);
 }
 
 .simple-panel p {
@@ -259,6 +310,7 @@ a {
   border-bottom: 1px solid #000;
 }
 
+/* RESPONSIVE */
 @media (max-width: 1200px) {
   .moon-center {
     width: 760px;
@@ -266,34 +318,34 @@ a {
   }
 
   .moon-core {
-    width: 500px;
-    height: 500px;
+    width: 440px;
+    height: 440px;
   }
 
   @keyframes orbitOne {
     0% {
-      transform: rotate(0deg) translateY(-270px) rotate(0deg);
+      transform: rotate(0deg) translateY(-235px) rotate(0deg);
     }
     100% {
-      transform: rotate(360deg) translateY(-270px) rotate(-360deg);
+      transform: rotate(360deg) translateY(-235px) rotate(-360deg);
     }
   }
 
   @keyframes orbitTwo {
     0% {
-      transform: rotate(120deg) translateY(-270px) rotate(-120deg);
+      transform: rotate(120deg) translateY(-235px) rotate(-120deg);
     }
     100% {
-      transform: rotate(480deg) translateY(-270px) rotate(-480deg);
+      transform: rotate(480deg) translateY(-235px) rotate(-480deg);
     }
   }
 
   @keyframes orbitThree {
     0% {
-      transform: rotate(240deg) translateY(-270px) rotate(-240deg);
+      transform: rotate(240deg) translateY(-235px) rotate(-240deg);
     }
     100% {
-      transform: rotate(600deg) translateY(-270px) rotate(-600deg);
+      transform: rotate(600deg) translateY(-235px) rotate(-480deg);
     }
   }
 }
@@ -380,7 +432,7 @@ a {
       transform: rotate(240deg) translateY(-150px) rotate(-240deg);
     }
     100% {
-      transform: rotate(600deg) translateY(-150px) rotate(-600deg);
+      transform: rotate(600deg) translateY(-150px) rotate(-480deg);
     }
   }
 
@@ -392,27 +444,4 @@ a {
     width: 100%;
     padding: 28px;
   }
-}
-.main-content::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-image: url("https://i.redd.it/gspm4l6xzct41.gif");
-  background-size: cover;
-  background-position: center;
-
-  filter: invert(1) contrast(1.1) brightness(1.1);
-
-  opacity: 0.15;
-
-  pointer-events: none;
-  z-index: 0;
-}
-.moon-stage,
-.moon-center,
-.moon-core,
-.orbit-item {
-  position: relative;
-  z-index: 2;
 }
